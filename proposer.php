@@ -7,7 +7,7 @@
 
 
 
-      <?php include('bdd.php'); session_start(); $_SESSION["login"] = 1;?>
+      <?php include('bdd.php'); session_start(); $_SESSION["login"] = 2;?>
 
       <?php // rajouter champ bdd trajet conducteur s'il veut rendre public telelepone ET PREVENIR QUE MAIL SERA VISIBLE SUR LE SITE
           $radio = !empty($_POST['radio']) ? $_POST['radio'] : NULL;
@@ -41,12 +41,11 @@
                 else if(mysqli_num_rows($deja_proposer) == 0){
                     if(empty($_POST['desc']) || !empty($_POST['desc'])){
                     $proposer = mysqli_query($link_login, $requete_proposer);
-
                     $requete_trouver_id_trajet = "SELECT id_trajet FROM trajet ORDER BY id_trajet DESC LIMIT 1";
                     $res = mysqli_query($link_login, $requete_trouver_id_trajet);
                     $id_trajet = mysqli_fetch_assoc($res);
 
-                    $requete_ajt_trajet_conducteur = "INSERT INTO `trajet_conducteur`(`id_personne`, `id_trajet`, `prix`, `nb_passager`) VALUES ('".$_SESSION["login"]."','".$id_trajet["id_trajet"]."','".$_POST["prix"]."','".$_POST["nb"]."')";
+                    $requete_ajt_trajet_conducteur = "INSERT INTO `trajet_conducteur`(`id_personne`, `id_trajet`, `prix`, `nb_passager`, `telephone_visible`) VALUES ('".$_SESSION["login"]."','".$id_trajet["id_trajet"]."','".$_POST["prix"]."','".$_POST["nb"]."', 'non')";
                     $table_trajet_conducteur = mysqli_query($link_login,  $requete_ajt_trajet_conducteur);
                     }
 
@@ -60,12 +59,47 @@
                 }
 
                 // Il a déjà proposer un trajet, on lui demande s'il veut le supprimer ou le modifier
-                else if(mysqli_num_rows($deja_proposer) == 1){
-
+                 else if(mysqli_num_rows($deja_proposer) == 1){
 
                 // affichage 2 bouton supp ou modif qui redirige
 
 
+
+            // SUPPRIMER PROPOSITION :
+                    // Envoie mail au festivalier qui a réservé pour le voyage que le conducteur a supprimé
+
+                    // tous les id des passagés :
+                    $nb_passagers = "SELECT id_personne FROM rejoindre WHERE rejoindre.id_trajet = (SELECT id_trajet FROM trajet_conducteur WHERE trajet_conducteur.id_personne = '".$_SESSION['login']."')";
+                    $_res_nb = mysqli_query($link_login, $nb_passagers);
+
+                    // récupere mail passagé via leur ID et leur envoie un mail :
+                    while($row = mysqli_fetch_assoc($_res_nb)){
+                        $requete_email = "SELECT email FROM compte WHERE id_personne = '".$row['id_personne']."'";
+                        $res_email = mysqli_query($link_login, $requete_email);
+                        $email = mysqli_fetch_assoc($res_email);
+                        echo $email['email']; // mail du passagé
+
+                        /* ---------- ENVOYE MAIL -------------- */
+                    }
+
+                    $requete_mail = "SELECT ".
+
+                    // table rejoindre
+                    $requete_1 = "DELETE FROM `rejoindre` WHERE rejoindre.id_trajet = (SELECT id_trajet FROM trajet_conducteur WHERE trajet_conducteur.id_personne = '".$_SESSION['login']."')";
+                    $_res1 = mysqli_query($link_login, $requete_1);
+
+                    // table trajet
+                    $requete_2 = "DELETE FROM `trajet` WHERE trajet.id_trajet = (SELECT id_trajet FROM trajet_conducteur WHERE trajet_conducteur.id_personne = '".$_SESSION['login']."')";
+                    $_res2 = mysqli_query($link_login, $requete_2);
+
+                    // table trajet_conducteur
+                    $requete_3 = "DELETE FROM `trajet_conducteur` WHERE trajet_conducteur.id_personne = '".$_SESSION['login']."'";
+                    $_res3 = mysqli_query($link_login, $requete_3);
+
+
+             // MODIFIER PROPOSITION :
+
+                    // Affichage formulaire
                 }
           } 
       
