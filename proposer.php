@@ -7,37 +7,37 @@
 
 
 
-      <?php include('bdd.php'); session_start(); $_SESSION["login"] = 2;?>
+    <?php include('bdd.php'); session_start(); $_SESSION["login"] = 2;?>
+    <?php include('mail_envoie.php');?>
 
       <?php // rajouter champ bdd trajet conducteur s'il veut rendre public telelepone ET PREVENIR QUE MAIL SERA VISIBLE SUR LE SITE
-          $radio = !empty($_POST['radio']) ? $_POST['radio'] : NULL;
-          $depart = !empty($_POST['depart']) ? $_POST['depart'] : NULL;
-          $arrivee = !empty($_POST['arrivee']) ? $_POST['arrivee'] : NULL;
-          $nb = !empty($_POST['nb']) ? $_POST['nb'] : NULL;
-          $prix = !empty($_POST['prix']) ? $_POST['prix'] : NULL;
-          $desc = !empty($_POST['desc']) ? $_POST['desc'] : "";
+        $radio = !empty($_POST['radio']) ? $_POST['radio'] : NULL;
+        $depart = !empty($_POST['depart']) ? $_POST['depart'] : NULL;
+        $arrivee = !empty($_POST['arrivee']) ? $_POST['arrivee'] : NULL;
+        $nb = !empty($_POST['nb']) ? $_POST['nb'] : NULL;
+        $prix = !empty($_POST['prix']) ? $_POST['prix'] : NULL;
+        $desc = !empty($_POST['desc']) ? $_POST['desc'] : "";
 
-          $requete_derniere_edition = "SELECT num_edition FROM edition ORDER BY num_edition DESC LIMIT 1";
-          $result = mysqli_query($link_login, $requete_derniere_edition);
-          $edition = mysqli_fetch_assoc($result);
+        $requete_derniere_edition = "SELECT num_edition FROM edition ORDER BY num_edition DESC LIMIT 1";
+        $result = mysqli_query($link_login, $requete_derniere_edition);
+        $edition = mysqli_fetch_assoc($result);
         
 
-          $date = date('d-m-y');
-          if(isset($_POST['radio']))
+        $date = date('d-m-y');
+        if(isset($_POST['radio']))
             $requete_proposer = "INSERT INTO `trajet`(`id_trajet`, `type_`, `description`, `date_heure_depart`, `date_heure_arrivee`, `num_edition`, `date_creation`) VALUES (0, '".$_POST["radio"]."','".$desc."','".$depart."','".$arrivee."','".$edition["num_edition"]."','".$date."')";
 
-          $requete_deja_proposer = "SELECT id_trajet FROM trajet_conducteur WHERE id_personne = '".$_SESSION["login"]."'";
-          $deja_proposer = mysqli_query($link_login, $requete_deja_proposer);
+        $requete_deja_proposer = "SELECT id_trajet FROM trajet_conducteur WHERE id_personne = '".$_SESSION["login"]."'";
+        $deja_proposer = mysqli_query($link_login, $requete_deja_proposer);
 
-      
-          if(!empty($_POST)){
+        if(!empty($_POST)){
                 if(empty($_POST['radio'])) {}
                 else if(empty($_POST['depart'])){}
                 else if(empty($_POST['arrivee'])){}
                 else if(empty($_POST['nb'])){}
                 else if(empty($_POST['prix'])){}
 
-                // S'il n'a pas déjà proposer de trajet 
+                // S'il n'a pas dÃ©jÃ  proposer de trajet 
                 else if(mysqli_num_rows($deja_proposer) == 0){
                     if(empty($_POST['desc']) || !empty($_POST['desc'])){
                     $proposer = mysqli_query($link_login, $requete_proposer);
@@ -55,31 +55,44 @@
                     /* ----------------------- ENVOIE MAIL AUX DEMANDEURS      ----- */
                     
                     
+                    
                     /* ------ header("Location: page.php"); REDIRIGE QUAND FINIS PROPOSER ? -----*/
                 }
 
-                // Il a déjà proposer un trajet, on lui demande s'il veut le supprimer ou le modifier
-                 else if(mysqli_num_rows($deja_proposer) == 1){
+                // Il a dÃ©jÃ  proposer un trajet, on lui demande s'il veut le supprimer ou le modifier
+                else if(mysqli_num_rows($deja_proposer) == 1){
 
                 // affichage 2 bouton supp ou modif qui redirige
 
 
 
             // SUPPRIMER PROPOSITION :
-                    // Envoie mail au festivalier qui a réservé pour le voyage que le conducteur a supprimé
+                    // Envoie mail au festivalier qui a rÃ©servÃ© pour le voyage que le conducteur a supprimÃ©
 
-                    // tous les id des passagés :
+                    // tous les id des passagÃ©s :
                     $nb_passagers = "SELECT id_personne FROM rejoindre WHERE rejoindre.id_trajet = (SELECT id_trajet FROM trajet_conducteur WHERE trajet_conducteur.id_personne = '".$_SESSION['login']."')";
                     $_res_nb = mysqli_query($link_login, $nb_passagers);
 
-                    // récupere mail passagé via leur ID et leur envoie un mail :
+                    // rÃ©cupere mail passagÃ© via leur ID et leur envoie un mail :
                     while($row = mysqli_fetch_assoc($_res_nb)){
                         $requete_email = "SELECT email FROM compte WHERE id_personne = '".$row['id_personne']."'";
                         $res_email = mysqli_query($link_login, $requete_email);
                         $email = mysqli_fetch_assoc($res_email);
-                        echo $email['email']; // mail du passagé
+                        echo $email['email']; // mail du passagÃ©
 
                         /* ---------- ENVOYE MAIL -------------- */
+                        $body= "Bonjour, votre trajet a Ã©tÃ© supprimÃ©. Vous pouvez retrouver un trajet en retournant sur le site";
+                        $subject = "Trajet surpprimÃ©";
+                        
+                        $success=e_mail($email['email'],$body,$subject);
+                        if ($success == 1){
+                            echo "email envoyÃ©";
+                        }
+                        else{
+                            echo "erreur d'envoie ";
+                        }
+
+
                     }
 
                     $requete_mail = "SELECT ".
@@ -101,9 +114,9 @@
 
                     // Affichage formulaire
                 }
-          } 
-      
-      ?>
+        } 
+    
+    ?>
 
 
 <body>
@@ -111,14 +124,14 @@
     <form action="<?php echo htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES); ?>" method="post">
         <label>Type de trajet : </label>
         <div>
-          <input type="radio" id="radio" name="radio" value="aller"
-                 checked>
-          <label>Aller</label>
+        <input type="radio" id="radio" name="radio" value="aller"
+                checked>
+        <label>Aller</label>
         </div>
 
         <div>
-          <input type="radio" id="radio" name="radio" value="retour">
-          <label>Retour</label>
+        <input type="radio" id="radio" name="radio" value="retour">
+        <label>Retour</label>
         </div>
 
         <!-- Mettre heure min et heure max selon edition BDD-->
@@ -138,11 +151,11 @@
         <input type="textarea" name="desc" id="desc" value="<?php if(!empty($_POST['desc'])) { echo htmlspecialchars($_POST['desc'], ENT_QUOTES); } ?>">
 
         <input type="submit" name="submit" value="Proposer" />
-          </p>
-                  <?php if(!empty($message)) :
-                      echo '<div style="text-align: center ;margin-top: 4px; font-size: 20px;font-weight: bold; color: white; text-decoration: underline;">  '.$message.' </div>';
-                  endif; ?>
-          </p>
+        </p>
+                <?php if(!empty($message)) :
+                    echo '<div style="text-align: center ;margin-top: 4px; font-size: 20px;font-weight: bold; color: white; text-decoration: underline;">  '.$message.' </div>';
+                endif; ?>
+        </p>
     </form>
 
 </body>
