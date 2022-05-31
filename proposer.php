@@ -95,8 +95,6 @@
 
                     }
 
-                    $requete_mail = "SELECT ".
-
                     // table rejoindre
                     $requete_1 = "DELETE FROM `rejoindre` WHERE rejoindre.id_trajet = (SELECT id_trajet FROM trajet_conducteur WHERE trajet_conducteur.id_personne = '".$_SESSION['login']."')";
                     $_res1 = mysqli_query($link_login, $requete_1);
