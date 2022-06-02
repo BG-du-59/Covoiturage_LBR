@@ -1,0 +1,116 @@
+html {
+    font-family: 'Roboto light', ;
+}
+
+
+/*sur toutes les pages*/
+
+.question {
+    height: auto;
+    position: absolute;
+    right: 15%;
+    left: 15%;
+    top: 5%;
+    text-align: center;
+    color: #FFFEE6;
+    font-size: 50px;
+}
+
+
+/*Pages 1 à 5, balide des input*/
+
+.donnee {
+    /* Button & background*/
+    padding-left: 30px;
+    height: 15%;
+    position: absolute;
+    right: 30%;
+    left: 30%;
+    top: 30%;
+    background-color: #BDE4FC;
+    border-radius: 50px;
+    /* font */
+    font-size: 30px;
+}
+
+
+/* div pour les boutons next et previous*/
+
+.align_button {
+    position: absolute;
+    width: 100%;
+    top: 60%;
+    height: 80px;
+}
+
+.next {
+    position: absolute;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 40px;
+    width: 100px;
+    right: 20%;
+}
+
+.previous {
+    position: absolute;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 40px;
+    width: 100px;
+    left: 20%;
+}
+
+.button {
+    /*caracterique*/
+    width: 100%;
+    height: 100%;
+    background-color: #FF890A;
+    border-radius: 50px;
+    color: #FFFEE6;
+    font-size: 18px;
+}
+
+
+/* checkbox page 4 pour le prix gratuit*/
+
+.checkbox {
+    position: absolute;
+    width: 150px;
+    top: 48%;
+    left: 30%;
+    color: #FFFEE6;
+}
+
+.gratuit {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* page 6 tableau récaptitulatif*/
+
+.recap {
+    padding-left: 20px;
+    height: auto;
+    position: absolute;
+    right: 30%;
+    left: 30%;
+    top: 20%;
+    background-color: #BDE4FC;
+    border-radius: 50px;
+    /* font */
+    font-size: 20px;
+}
+
+
+/* Bouton valider page 6*/
+
+.submit {
+    width: 100%;
+    height: 100%;
+    background-color: #3671B3;
+    border-radius: 50px;
+    color: #FFFEE6;
+    font-size: 18px;
+}
