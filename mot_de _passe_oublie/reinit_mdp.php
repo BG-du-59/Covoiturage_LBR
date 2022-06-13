@@ -23,7 +23,7 @@
                 $requete_chg_mdp = mysqli_query($link_login, $changer_mdp);
 
                 unset($_SESSION['code']);
-                header("location: acceuil_client.php");
+                header("location: connection.php");
             }
             else{
                 echo "<script>alert(\"Les mots de passe sont différents\")</script>";
