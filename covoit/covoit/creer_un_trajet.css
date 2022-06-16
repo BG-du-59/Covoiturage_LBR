@@ -1,0 +1,240 @@
+html {
+    font-family: 'Roboto light', sans-serif;
+}
+
+
+/* entete */
+
+#entete {
+    position: fixed;
+    width: 100%;
+    height: 160px;
+    background-color: #161920;
+    display: flex;
+    align-items: center;
+    top: 0px;
+}
+
+#logo {
+    position: fixed;
+    background-color: #161920;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    left: 10px;
+}
+
+#trajet_compte {
+    position: fixed;
+    background-color: #161920;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    right: 0px;
+    z-index: 2;
+}
+
+#image {
+    position: flex;
+    width: 300px;
+    height: 240px;
+}
+
+#image2 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#bouton_mestrajets {
+    position: flex;
+    width: 250px;
+    height: 60px;
+    background: #BDE4FC;
+    border-radius: 15px;
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    color: #161920;
+    border: none;
+    outline: none;
+}
+
+#se_co {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    right: 40px;
+    background: #FFFEE6;
+    border: none;
+    outline: none;
+}
+
+
+/* body des pages */
+
+
+/*sur toutes les pages*/
+
+.question {
+    height: auto;
+    position: absolute;
+    right: 15%;
+    left: 15%;
+    top: 5px;
+    text-align: center;
+    color: #FFFEE6;
+    font-size: 50px;
+}
+
+.corps {
+    position: fixed;
+    top: 150px;
+    height: 800px;
+    width: 100%;
+}
+
+
+/*Pages 1 à 5, balide des input*/
+
+.donnee {
+    /* Button & background*/
+    padding-left: 30px;
+    height: 15%;
+    position: absolute;
+    right: 30%;
+    left: 30%;
+    top: 30%;
+    background-color: #BDE4FC;
+    border-radius: 50px;
+    /* font */
+    font-size: 30px;
+}
+
+
+/* div pour les boutons next et previous*/
+
+.align_button {
+    position: absolute;
+    width: 100%;
+    top: 60%;
+    height: 80px;
+}
+
+.next {
+    position: absolute;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 40px;
+    width: 100px;
+    right: 20%;
+}
+
+.previous {
+    position: absolute;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 40px;
+    width: 100px;
+    left: 20%;
+}
+
+.button {
+    /*caracterique*/
+    width: 100%;
+    height: 100%;
+    background-color: #FF890A;
+    border-radius: 50px;
+    color: #FFFEE6;
+    font-size: 18px;
+}
+
+
+/* checkbox page 4 pour le prix gratuit*/
+
+.checkbox {
+    position: absolute;
+    width: 150px;
+    top: 48%;
+    left: 30%;
+    color: #FFFEE6;
+}
+
+.gratuit {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* page 6 tableau récaptitulatif*/
+
+.recap {
+    padding-left: 20px;
+    height: 300px;
+    position: absolute;
+    right: 30%;
+    left: 30%;
+    top: 20%;
+    background-color: #BDE4FC;
+    border-radius: 50px;
+    /* font */
+    font-size: 20px;
+    scrollbar-color: #3671B3;
+    scrollbar-width: thin;
+}
+
+.recap::-webkit-scrollbar
+/* Bouton valider page 6*/
+
+.submit {
+    width: 100%;
+    height: 100%;
+    background-color: #3671B3;
+    border-radius: 50px;
+    color: #FFFEE6;
+    font-size: 18px;
+}
+
+
+/* Page 1 choix de l'aller et du retour*/
+
+.aller_retour {
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    top: 20%;
+}
+
+.aller {
+    color: #FFFEE6;
+    font-size: 20px;
+    width: 100px;
+    height: 100%;
+    position: absolute;
+    left: 37%;
+    padding: 3px;
+}
+
+.retour {
+    color: #FFFEE6;
+    font-size: 20px;
+    width: 100px;
+    height: 100%;
+    position: absolute;
+    right: 37%;
+    padding: 3px;
+}
+
+#check {
+    text-align: center;
+    top: 30%;
+    left: 30%;
+    color: #FFFEE6;
+}

@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    background-color: #161920;
+    font-size: 24px;
+
+}
+#dropdown{
+    border-radius: 10px;
+}
+#menu:hover{
+    transition: 0.5s;
+    background-color: #161920;
+    color: #FFFEE6;
+}
+#menu1:hover{
+    transition: 0.5s;
+    background-color: #161920;
+    color: #FFFEE6;
+}
+#menu2:hover{
+    transition: 0.5s;
+    background-color: #161920;
+    color: #FFFEE6;
+}
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+
+
+#show_connection_pannel{
+    display: none;
+    text-align: center;
+    margin: auto;
+    min-height: 600px;
+    min-width: 300px;
+    width: 350px;
+    height: 500px;
+    background-color: #3671B3;
+    z-index: 3;
+    border-radius: 10px;
+
+
+}
+#connection{
+    display: none;
+}
+
+.inscription{
+    background-color: #3671B3;
+    border-radius: 10px;
+
+}
+
+.gradient-custom{
+    display: block;
+    z-index: 3;
+}
+
+.btn_connexion{
+    border: 2px solid #FFFEE6 ;
+    background-color: #FFFEE6;
+}
+
+.btn_connexion:hover{
+    background-color: #AF001E;
+}
+
+.card-body{
+    background-color: #3671B3;
+    color: #FFFEE6;
+}
+
+.card-body div{
+    background-color: #3671B3;
+}
+.card-body input{
+    background-color: #FFFEE6;
+}
+
+.card-body h2{
+    background-color: #3671B3;
+}
+.card-body h3{
+    background-color: #3671B3;
+}
+.card-body h5{
+    background-color: #3671B3;
+}
+.card-body h6{
+    background-color: #3671B3;
+}
+.card-body p{
+    background-color: #3671B3;
+}
+.card-body a{
+    background-color: #3671B3;
+}
+.card-body label{
+    background-color: #3671B3;
+
+}
+.card-body svg{
+    background-color: #3671B3;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.card-body svg:hover{
+    cursor: pointer;
+}
+a, a:hover{
+    color:#333
+}
+

@@ -1,0 +1,631 @@
+/* structure principale */
+
+#root {
+    height: 100vh;
+    height: stretch;
+}
+#entete {
+    position: fixed;
+    width: 100%;
+    height: 160px;
+    background-color: #161920;
+    display: flex;
+    align-items: center;
+    top: 0px;
+}
+#fenetre{
+    position: fixed;
+    background: none;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 160px;
+}
+
+/* entete */
+
+#logo{
+    position: fixed;
+    background-color: #161920;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    left: 10px;
+
+}
+#trajet_compte{
+    position: fixed;
+    background-color: #161920;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    right: 0px;
+}
+#image{
+    position: flex;
+    width: 300px;
+    height: 240px; 
+}
+#image2{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+}
+#bouton_mestrajets{
+    position: flex;
+width: 250px;
+height: 60px;
+background: #BDE4FC;
+border-radius: 15px;
+font-family: 'Roboto light', sans-serif;
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 35px;
+text-align: center;
+color: #161920;
+border: none;
+outline: none;
+}
+#se_co{
+position: absolute;
+width: 80px;
+height: 80px;
+border-radius:50%;
+right: 40px;
+background: #FFFEE6;
+border: none;
+outline: none;
+}
+
+/* structure fenetre */
+
+
+#gauche{
+    position: sticky;
+    width: 23%;
+    height: 100%;
+    background-color: #161920;
+}
+.droite{
+    position: sticky;
+    width: 75%;
+    height: 30%;
+    background-color: #161920;
+}
+
+/* proposition demande et affichage des trajets */
+
+#liste{
+    width: 100%;
+    height: 220%;
+    background-color:#161920;
+    margin-top:100px;
+}
+#propdem{
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-color: #161920;
+    align-items: center;
+    top:0%;
+}
+
+#proposition{
+    position:absolute;
+    width: 50%;
+    height: 100%;
+    left:0%;
+    background-color: #161920;
+    border: none;
+    outline: none;
+}
+#demande{
+    position:absolute;
+    width: 50%;
+    height: 100%;
+    left:50%;
+    background-color: #161920;
+    border: none;
+    outline: none;
+}
+.visible{
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    color: #BDE4FC;
+}
+.pasvisible{
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    color: rgba(189, 228, 252, 0.4);
+}
+
+#barre{
+    position: absolute;
+    width: 80%;
+    height: 2px;
+    background-color: #BDE4FC;
+    display: flex;
+    bottom:0%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#ligne{
+    position: absolute;
+    width: 3px;
+    height: 700px;
+    background-color: #BDE4FC;
+    right: 0%;
+}
+
+/* colonne de gauche */
+
+#destination{
+    width: 100%;
+    height: 150px;
+    background-color: #161920;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+}
+#destinationbis{
+    width: 100%;
+    height: 150px;
+    background-color: #161920;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+}
+#destination2{
+    width: 95%;
+    height: 110px;
+    background: rgba(255, 254, 230, 0.75);
+    top: 300px;
+    position: absolute;
+    left: 49%;
+    transform: translate(-50%,-50%);
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 35px;
+    text-align: center;
+    color: #161920;
+    border-radius:10px;
+    overflow: hidden;
+    border: none;
+}
+#destination2bis{
+    width: 95%;
+    height: 110px;
+    background: rgba(255, 254, 230, 0.75);
+    top: 100px;
+    position: absolute;
+    left: 49%;
+    transform: translate(-50%,-50%);
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 35px;
+    text-align: center;
+    color: #161920;
+    border-radius:10px;
+    overflow: hidden;
+    border: none;
+}
+
+#switch{
+    width: 50px;
+    height :50px;
+    top: 205px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#creer{
+    width: 100%;
+    height: 150px;
+    background-color: #161920;
+    top: 480px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+
+#adresse{
+    top: 25px;
+    position: absolute;
+    left: 65%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    height: 30px;
+    background: rgba(255, 254, 230, 0.75);
+    color: #161920;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+#date{
+    top: 75px;
+    position: absolute;
+    left: 65%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    height: 30px;
+    background: rgba(255, 254, 230, 0.75);
+    color: #161920;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+#horaire{
+    top: 125px;
+    position: absolute;
+    left: 65%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    height: 30px;
+    background: rgba(255, 254, 230, 0.75);
+    color: #161920;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+
+#dep{
+    position: absolute;
+    top: 5px;
+    color: #FFFEE6;
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+#le{
+    position: absolute;
+    top: 55px;
+    color: #FFFEE6;
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+#a{
+    position: absolute;
+    top: 105px;
+    color: #FFFEE6;
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+#fleche1{
+    position: absolute;
+    background-color: #BDE4FC;
+    width: 5px;
+    height: 30px;
+    left: 35%;
+    transform: translate(-50%);
+    top: 10px;
+}
+
+#fleche2{
+    position: absolute;
+    background-color: #BDE4FC;
+    width: 5px;
+    height: 30px;
+    left: 65%;
+    transform: translate(-50%);
+}
+
+#triangle1{
+    position: absolute;
+    height : 0;
+    width : 0;
+    border-top : 10px solid #BDE4FC;
+    border-right : 10px solid transparent;
+    border-left : 10px solid transparent;
+    left: 65%;
+    transform: translate(-50%);
+    top: 30px;
+   }
+
+   #triangle2{
+    position: absolute;
+    height : 0;
+    width : 0;
+    border-right : 10px solid transparent;
+    border-bottom : 10px solid #BDE4FC;
+    border-left : 10px solid transparent;
+    left: 35%;
+    transform: translate(-50%);
+   }
+   #echange{
+       position: relative;
+       height : 100%;
+       width : 100%;
+       background: none;
+       border: none; 
+       z-index: 10;
+   }
+
+   #rechercher{
+    position: absolute;
+    width: auto;
+    height: 40px;
+    background: #BDE4FC;
+    border-radius: 15px;
+    
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 35px;
+    text-align: center;
+    color: #161920;
+    border: none;
+    outline: none;
+    left: 50%;
+    transform: translate(-50%);
+    top: 0%;
+   }
+
+   #créerb{
+    position: absolute;
+    width: 80%;
+    height: 70px;
+    background: #BDE4FC;
+    border-radius: 15px;
+    
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 60px;
+    text-align: center;
+    color: #161920;
+    border: none;
+    outline: none;
+    left: 50%;
+    transform: translate(-50%);
+    top: 100px;
+   }
+
+   #ou{
+    position: absolute;
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    color: #FFFEE6;
+    border: none;
+    outline: none;
+    left: 50%;
+    transform: translate(-50%);
+    top: 50px;
+   }
+
+/* case d'un trajet */
+
+.bulle{
+    width:80%;
+    height: 200px;
+    background-color: #BDE4FC;
+    margin: auto;
+    margin-top: 50px;
+    box-sizing: border-box;
+    font-size: 50px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.info_destination{
+    width:30%;
+    height:100%;
+}
+   .info_trajet{
+    width:40%;
+    height:100%;
+}
+.interraction{
+    width:30%;
+    height:100%;
+}
+.info_depart{
+    width:100%;
+    height:20%;
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 18px;
+    text-align: center;
+    color: #161920;
+    overflow: hidden;
+    margin-top: 3%;
+}
+.info_arrive{
+    width:100%;
+    height:30%;
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 18px;
+    text-align: center;
+    color: #161920;
+    overflow: hidden;
+}
+.vers{
+    width:100%;
+    height:27%;
+}
+.photo_profil{
+    width:100%;
+    height:20%;
+}
+.info_compl{
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 950;
+    font-size: 20px;
+    line-height: 35px;
+    text-align: start;
+    color: #161920;
+    height: 20%;
+    overflow: hidden;
+    margin-left: 15%;
+}
+.marge{
+    height: 10%;
+}
+.rond{
+    background-color: #161920;
+    width: 15px;
+    height: 15px;
+    margin:auto;
+    border-radius: 50%;
+}
+.fleche3{
+    background-color: #161920;
+    width: 4px;
+    height: 50%;
+    margin: auto;
+}
+.triangle3{
+    height : 0;
+    width : 0;
+    border-top : 10px solid #161920;
+    border-right : 10px solid transparent;
+    border-left : 10px solid transparent;
+    left: 65%;
+    transform: translate(-50%);
+    top: 30px;
+    margin-left: 50%;
+}
+.nom_prenom{
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 950;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: start;
+    color: #161920;
+    margin-left: 25%;
+}
+.prix{
+    width:90%;
+    height:60%;
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 950;
+    font-size: 24px;
+    line-height: 35px;
+    color: #161920;
+    text-align: right;
+}
+.marge1{
+    width:90%;
+    height:10%;
+}
+
+.bouton_interraction{
+    width:100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+}
+.bouton_visualiser{
+    margin: auto;
+    width:40%;
+    height: 60%;
+    border-radius: 20%;
+    background-color: #3671B3;
+    border: none;
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 950;
+    font-size: 16px;
+    line-height: 35px;
+    color: #FFFEE6;
+    overflow: hidden;
+}
+.bouton_rejoindre{
+    width:40%;
+    height: 60%;
+    border-radius: 20%;
+    background-color: #161920;
+    border: none;
+    font-family: 'Roboto light', sans-serif;
+    font-style: normal;
+    font-weight: 950;
+    font-size: 16px;
+    line-height: 35px;
+    color: #FFFEE6;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+/* fenrtres pop up */
+#fond_photo {
+    background-color: #bde4fc;
+    height: 60px;
+    width: 60px;
+    top: 0px;
+    border-radius: 50px;
+}
+
+#photo {
+    height: 60px;
+    width: 60px;
+    top: 0px;
+    left: 0px;
+}
+
+.entete_pop {
+    background-color: #bde4fc;
+    align-items: center;
+    text-align: center;
+    color: #161920;
+}
+
+.texte_gauche {
+    padding-left: 5px;
+    margin: 3px;
+}
+
+.tableau {
+    background-color: #bde4fc;
+}
+
+.pied_page {
+    background-color: #bde4fc;
+    --bs-modal-footer-bg: #bde4fc;
+}
